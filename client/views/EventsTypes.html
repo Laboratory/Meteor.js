@@ -1,0 +1,12 @@
+<template name="EventsTypes">
+  <div>
+    <ul class="list-group">
+      {{#each _events_type}}
+        <li class="list-group-item">
+          <span class="badge">{{count}}</span>
+          {{type}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

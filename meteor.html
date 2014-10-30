@@ -1,0 +1,54 @@
+<head>
+  <title>meteor_chat</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">
+          <span>Github Public Events</span>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="btn-stat">Statistic</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="main-container" class="container main-container">
+    <div class="center-container">
+      <div id="events-panel" class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Active Events
+            <div class="pull-right">
+              <button type="button" id="btn-sabscription" class="btn btn-danger btn-xs">Stop</button>
+            </div>
+          </h3>
+        </div>
+        <div class="panel-body">
+          {{> Events}}
+        </div>
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Events statistic
+            <div class="pull-right">
+              <span id="btn-close-stat" class="close" aria-hidden="true">&times;</span>
+            </div>
+          </h3>
+        </div>
+        <div class="panel-body">
+           {{> EventsTypes}}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
