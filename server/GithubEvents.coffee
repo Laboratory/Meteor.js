@@ -4,6 +4,8 @@
 
 class @GithubEvents extends Npm.require('events').EventEmitter
   #Github public events url
+  #auth github tocken
+  _token: ""
   _url: 'https://api.github.com/events'
   autostart: false
   interval: 5000 #ms
@@ -15,6 +17,7 @@ class @GithubEvents extends Npm.require('events').EventEmitter
   getEvents: ->
     Meteor.http.get @_url, {
         headers:
+          'Authorization': "token #{@_token}"
           'User-Agent': 'Meteor.js'
       }, _.bind ((status, result) ->
         return console.error status if status #stop service and see why github bloc your domain
