@@ -17,6 +17,20 @@ createJsonCode = (data) ->
   $('#json-viewer pre').each (i, block) ->
     hljs.highlightBlock block
 
+Template.ObserveAdd.helpers do ->
+  createdAt: (date) ->
+    dt = new Date date
+    return '' if isNaN dt
+    pad = (s) ->
+      if s then ('0' + s.toString()).substr -2,2 else '--'
+    y = dt.getFullYear()
+    m = pad dt.getMonth()
+    d = pad dt.getDay()
+    h = pad dt.getHours()
+    m = pad dt.getMinutes()
+    s = pad dt.getSeconds()
+    return "#{y}/#{m}/#{d} #{h}:#{m}:#{s}"
+
 Template.EventsTypes.helpers do ->
   _events_type: ->
     EventsType.find({},
@@ -35,7 +49,7 @@ $ ->
   removeOldNodes = ->
     #delete rows > 20 in container
     maxRows = 20
-    while $('#events-container div').length >= maxRows
-      $('#events-container div:last-child').remove()
+    while $('#events-container > div.lg-item').length >= maxRows
+      $('#events-container > div.lg-item:last-child').remove()
 
 Meteor.subscribe '_events_type'

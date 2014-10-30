@@ -90,7 +90,12 @@ a.list-group-item.custom {
   padding: 0.2em;
   cursor: pointer;
   margin-bottom: 0.1em !important;
-  > h4 {
-    margin: 0;
+  >img,
+  >div {
+    display: inline-block;
+    > h4, >span {
+      margin: 0;
+      display: block;
+    }
   }
 }

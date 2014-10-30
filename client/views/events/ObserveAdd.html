@@ -1,11 +1,16 @@
 <template name="ObserveAdd">
-  <div>
+  <div class="lg-item">
     <a mng-id="{{id}}" class="list-group-item custom">
-      <h4>
-        <img src="{{actor.avatar_url}}" alt=""  class="img-thumbnail"/>
-        {{actor.login}}
-        <small>{{type}}</small>
-      </h4>
+      <img src="{{actor.avatar_url}}" alt=""  class="img-thumbnail"/>
+        <div>
+          <span>
+            {{createdAt created_at}}
+          </span>
+          <h4>
+            {{actor.login}}
+            <small>{{type}}</small>
+          </h4>
+        </div>
     </a>
   </div>
 </template>
