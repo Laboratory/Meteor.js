@@ -1,3 +1,22 @@
+Template.ObserveAdd.events =
+  'click a': (evt) ->
+    node = evt.currentTarget
+    mngId = $(node).attr 'mng-id'
+    data = Events.find(
+      id: mngId
+    ).fetch()
+    createJsonCode data
+
+createJsonCode = (data) ->
+  json = data && data.length > 0 && data[0]
+  node = $ '#json-viewer'
+  unless json
+    return !!node.html 'Code is not rendered'
+  jsonString = JSON.stringify json, null, 2
+  $('#json-viewer').html("<pre>#{jsonString}</pre")
+  $('#json-viewer pre').each (i, block) ->
+    hljs.highlightBlock block
+
 Template.EventsTypes.helpers do ->
   _events_type: ->
     EventsType.find({},
