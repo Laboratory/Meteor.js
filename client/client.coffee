@@ -22,7 +22,7 @@ Template.ObserveAdd.helpers do ->
     dt = new Date date
     return '' if isNaN dt
     pad = (s) ->
-      if s then ('0' + s.toString()).substr -2,2 else '--'
+      ('0' + s.toString()).substr -2,2
     y = dt.getFullYear()
     m = pad dt.getMonth()
     d = pad dt.getDay()

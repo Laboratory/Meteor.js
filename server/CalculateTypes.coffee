@@ -10,6 +10,7 @@ Meteor.methods do ->
       EventsType.update row._id, row
 
 count = @Events.find().count()
+
 @Events.find().observe do ->
   addedAt: (doc, atIndex)->
     Meteor.call 'calculateTypes', doc.type if atIndex > count

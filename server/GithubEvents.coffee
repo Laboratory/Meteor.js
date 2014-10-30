@@ -3,9 +3,9 @@
 #https://developer.github.com/v3/activity/events/
 
 class @GithubEvents extends Npm.require('events').EventEmitter
-  #Github public events url
   #auth github tocken
   _token: ""
+  #Github public events url
   _url: 'https://api.github.com/events'
   autostart: false
   interval: 5000 #ms
